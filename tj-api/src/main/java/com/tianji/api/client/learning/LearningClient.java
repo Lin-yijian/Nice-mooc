@@ -1,6 +1,7 @@
 package com.tianji.api.client.learning;
 
 import com.tianji.api.client.learning.fallback.LearningClientFallback;
+import com.tianji.api.dto.leanring.EvaluationScoreDTO;
 import com.tianji.api.dto.leanring.LearningLessonDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ public interface LearningClient {
     /**
      * 校验当前用户是否可以学习当前课程
      * @param courseId 课程id
-     * @return true：课程有效，false：课程无效，不能学习
+     * @return lessonId，如果是报名了则返回lessonId，否则返回空
      */
     @GetMapping("/lessons/{courseId}/valid")
     Long isLessonValid(@PathVariable("courseId") Long courseId);

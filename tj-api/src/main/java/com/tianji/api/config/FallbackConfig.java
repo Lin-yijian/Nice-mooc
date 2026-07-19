@@ -34,4 +34,5 @@ public class FallbackConfig {
     public PromotionClientFallback promotionClientFallback(){
         return new PromotionClientFallback();
     }
+
 }
